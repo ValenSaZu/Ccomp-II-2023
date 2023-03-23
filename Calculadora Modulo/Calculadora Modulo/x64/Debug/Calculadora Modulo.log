@@ -1,0 +1,5 @@
+﻿  Calculadora Modulo.cpp
+C:\Users\51955\source\repos\Calculadora Modulo\Calculadora Modulo\Calculadora Modulo.cpp(37,29): warning C4244: '*=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\51955\source\repos\Calculadora Modulo\Calculadora Modulo\Calculadora Modulo.cpp(40,25): warning C4244: '*=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\51955\source\repos\Calculadora Modulo\Calculadora Modulo\Calculadora Modulo.cpp(44,19): warning C4244: 'return': conversión de 'double' a 'int'; posible pérdida de datos
+  Calculadora Modulo.vcxproj -> C:\Users\51955\source\repos\Calculadora Modulo\x64\Debug\Calculadora Modulo.exe
