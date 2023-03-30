@@ -9,7 +9,7 @@ int congruencia(int a, int b) {
         while ((x * b) < a) {
             x += 1;
         }
-        a -= (x * b);
+        a -= ((x-1) * b);
     }
     return a;
 }
