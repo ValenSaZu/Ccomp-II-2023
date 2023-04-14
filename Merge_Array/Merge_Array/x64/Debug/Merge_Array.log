@@ -1,0 +1,3 @@
+﻿  Merge_Array.cpp
+C:\Users\51955\source\repos\Merge_Array\Merge_Array\Merge_Array.cpp(13,14): warning C4244: 'inicializando': conversión de '__int64' a 'int'; posible pérdida de datos
+  Merge_Array.vcxproj -> C:\Users\51955\source\repos\Merge_Array\x64\Debug\Merge_Array.exe
