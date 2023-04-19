@@ -1,0 +1,3 @@
+﻿  ColaRunning.cpp
+C:\Users\51955\source\repos\Cola\Cola\Cola.h(57): warning C4715: 'Cola::pop': no todas las rutas de acceso de control devuelven un valor
+  Cola.vcxproj -> C:\Users\51955\source\repos\Cola\x64\Debug\Cola.exe
