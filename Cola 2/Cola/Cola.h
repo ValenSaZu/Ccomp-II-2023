@@ -24,26 +24,18 @@ void Cola::push(int num)
         cout << "El dígito " << num << " ya está en la cola" << endl;
     }
     else if (Head < Inicio) {
-        if (tope == Fin) {
-            if (Inicio > Head) {
-                Inicio--;
-                *Inicio = num;
-                tope = Inicio;
-                cout << "El dígito " << num << " ya está en la cola" << endl;
-            }
-            else {
-                cout << "La cola está llena" << endl;
-            }
+        if (tope == Inicio-1) {
+            cout << "Cola llena :(" << endl;
+        }
+        else if (tope == Fin) {
+            tope = Head;
+            *tope = num;
+            cout << "El digito " << num << " ya está en la cola" << endl;
         }
         else {
-            if (tope < Inicio) {
-                tope++;
-                *tope = num;
-                cout << "El dígito " << num << " ya está en la cola" << endl;
-            }
-            else {
-                cout << "La cola está llena" << endl;
-            }
+            tope++;
+            *tope = num;
+            cout << "El dígito " << num << " ya está en la cola" << endl;
         }
     }
     else {
@@ -56,9 +48,8 @@ void Cola::push(int num)
         else
         {
             if (Inicio > Head) {
-                Inicio--;
-                *Inicio = num;
-                tope = Inicio;
+                tope = Head;
+                *tope = num;
                 cout << "El dígito " << num << " ya está en la cola" << endl;
             }
             else {
@@ -71,14 +62,24 @@ void Cola::push(int num)
 int Cola::pop()
 {
     if (tope == nullptr) {
-        cout << "Cola vacía :(" << endl;
+        cout << "Cola vacía :( no se puede hacer pop" << endl;
         return 0;
     }
     int tmp = *Inicio;
     *Inicio = 0;
-    if (Inicio == Fin) {
+    if (Inicio == Fin && tope == Fin) {
         Inicio = Head;
         tope = nullptr;
+        return tmp;
+    }
+    if (Inicio == Fin && tope < Inicio) {
+        Inicio = Head;
+        return tmp;
+    }
+    if (Inicio == tope && Inicio + 1 > tope) {
+        Inicio = Head;
+        tope = nullptr;
+        return tmp;
     }
     else {
         Inicio++;
@@ -87,15 +88,31 @@ int Cola::pop()
 }
 
 void Cola::print() {
-    if (tope == nullptr) {
-        cout << "Cola vacía :(" << endl;
-        return;
+    int count{ 0 };
+    for (int* i = Inicio; i <= Fin; i++) {
+        count += *i;
+    }
+    if (tope == nullptr || count == 0) {
+        cout << "No hay elementos que imprimir en la cola :(" << endl;
     }
     else {
+        /*if (Inicio == Head) {
+            for (int* i = Head; i <= Fin; i++) {
+                cout << *i << " ";
+            }
+            cout << endl;
+        }if (Inicio > Head) {
+            for (int* i = Inicio; i <= Fin; i++) {
+                cout << *i << " ";
+            }
+            for (int* i = Head; i < Inicio; i++) {
+                cout << *i << " ";
+            }
+        }
+        */
         for (int* i = Head; i <= Fin; i++) {
             cout << *i << " ";
         }
-        cout << endl;
     }
     cout << endl;
 }
