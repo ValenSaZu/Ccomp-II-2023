@@ -70,31 +70,33 @@ template <class T>
 void LE<T>::add(T v)
 {
     nodo<T>* nuevo_nodo = new nodo<T>(v);
-
-    if (!head)
-    {
-        head = nuevo_nodo;
-        head->next = head;
-    }
-    else if (v < head->valor)
-    {
-        nodo<T>* ultimo = head;
-        while (ultimo->next != head) {
-            ultimo = ultimo->next;
-        }
-        nuevo_nodo->next = head;
-        head = nuevo_nodo;
-        ultimo->next = head;
-    }
-    else
-    {
-        nodo<T>* p = head;
-        while (p->next != head && v > p->next->valor)
+    nodo<T>* pos_ant;
+    if (!find(v, pos_ant)) {
+        if (!head)
         {
-            p = p->next;
+            head = nuevo_nodo;
+            head->next = head;
         }
-        nuevo_nodo->next = p->next;
-        p->next = nuevo_nodo;
+        else if (v < head->valor)
+        {
+            nodo<T>* ultimo = head;
+            while (ultimo->next != head) {
+                ultimo = ultimo->next;
+            }
+            nuevo_nodo->next = head;
+            head = nuevo_nodo;
+            ultimo->next = head;
+        }
+        else
+        {
+            nodo<T>* p = head;
+            while (p->next != head && v > p->next->valor)
+            {
+                p = p->next;
+            }
+            nuevo_nodo->next = p->next;
+            p->next = nuevo_nodo;
+        }
     }
 }
 
@@ -115,8 +117,11 @@ void LE<T>::del(T v)
         }
         else
         {
-            if (head->next == head)
+            if (head->next == head) {
+                pos_del = head;
                 head = nullptr;
+                delete pos_del;
+            }
             else
             {
                 nodo<T>* ultimo = head;
